@@ -1,0 +1,57 @@
+[
+  {
+    "image": "gameplay.png",
+    "method": "Original process framebuffer, palette RGB6 expanded by multiplication by four",
+    "source": "reference/tick-traces/cd_v1_1_1997_09_win95_e/campaign-1-squad-success/ticks.jsonl.frame-01000.idx",
+    "sha256": "25c289866d9ac07b56a697b3bf1b2b9210c7e9e322d27314dc82996763c284a9",
+    "palette_sha256": "408183f585445736175b4be15041558d78481ee97514b98feaa3d7f211807e02"
+  },
+  {
+    "image": "terrain.png",
+    "method": "Original executable terrain and sky routines, controlled lunar camera",
+    "source": "rendering/terrain/w8-p3.png",
+    "sha256": "52269456e1e02e87a96467ea25bd8e524ebe430913b997850566399943622860"
+  },
+  {
+    "image": "combat.png",
+    "method": "Original process framebuffer, assault training, tick 2048",
+    "source": "reference/tick-traces/cd_v1_1_1997_09_win95_e/training-5-panels/ticks.jsonl.frame-02048.idx",
+    "sha256": "f0de23481e90ab3933cbace426286e07b860851672533e9ede5fcb5376beb084",
+    "palette_sha256": "d80891dfd719c1be52c0ae99d1c3d8c52ceda37ba6f0749c7ae34fdad3e7485c"
+  },
+  {
+    "image": "colossus.png",
+    "method": "Public browser viewer, Chromium with WebGL software rasterization",
+    "page": "models/#dts%2Fcolossus.dts",
+    "selector": "#view",
+    "sha256": "dae99c8cf46ee05e177374fb258f2ff69d1c686c7ddbd9257c45aa954309f2be"
+  },
+  {
+    "image": "raptor.png",
+    "method": "Public browser viewer, Chromium with WebGL software rasterization",
+    "page": "models/#dts%2Fraptor2.dts",
+    "selector": "#view",
+    "sha256": "5abf679d84d01ba36b40330f3b0af1b0692192a08953a3287e4977713d6edda6"
+  },
+  {
+    "image": "moon.png",
+    "method": "Public browser viewer, Chromium with WebGL software rasterization",
+    "page": "missions/?tape=demo3#C5_02",
+    "selector": "#sceneWrap",
+    "sha256": "49f1caaf02d48d92f7e1a295e9f19c5b700de55e12c0bf7541e1d8af493a58da"
+  },
+  {
+    "image": "cockpit.png",
+    "method": "Public browser viewer, Chromium with WebGL software rasterization",
+    "page": "cockpits/#razor",
+    "selector": "#view",
+    "sha256": "0356d877ac48fbcfb65851280f488294d6227ff0ebd0bd78fc52b39621a0afb5"
+  },
+  {
+    "image": "tape.png",
+    "method": "Public browser viewer, Chromium with WebGL software rasterization",
+    "page": "replays/",
+    "selector": "#plot",
+    "sha256": "887681c2fcf96638023be5f8e5e00632f0aa34254cb33bfa74100a60ce9a8796"
+  }
+]

@@ -1,0 +1,25 @@
+{
+  "name": "earthsiege2-excavated",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/check.mjs",
+    "dev": "node scripts/build.mjs && node scripts/serve.mjs",
+    "preview": "node scripts/serve.mjs",
+    "import": "python3 scripts/import-analysis.py",
+    "check:browser": "node scripts/browser-check.mjs",
+    "capture": "node scripts/capture-images.mjs"
+  },
+  "dependencies": {
+    "marked": "18.1.0",
+    "parse5": "8.0.0"
+  },
+  "devDependencies": {
+    "playwright": "1.64.1"
+  }
+}

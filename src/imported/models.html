@@ -1,0 +1,25 @@
+<style></style>
+<section class="viewer" data-viewer="models"><div class="toolbar"><label>Find <input id="find" type="search"></label><label>Group <select id="group"><option>All</option></select></label><span id="count"></span></div><div class="split"><div class="list"><table><thead><tr><th>Preview</th><th>Model</th></tr></thead><tbody id="rows"></tbody></table></div><section>
+<h2 id="name">Loading models</h2><div id="source" class="muted"></div>
+<div class="toolbar"><label id="rootLabel">Variant <select id="root"></select></label><label id="sequenceLabel">Sequence <select id="sequence"></select></label><label>Lighting <select id="lighting"><option value="sun">Mission sun</option><option value="bright">Full bright inspection</option></select></label><label><input id="edges" type="checkbox">Edges</label></div>
+<div id="animation" class="toolbar"><button id="play">Play</button><button id="reverse">Forward</button><label>Frame <input id="frame" type="range" min="0" max="0" value="0"><output id="frameText"></output></label><label>Speed × <input id="speed" type="number" value="1" min="0.1" max="10" step="0.1" style="width:70px"></label></div>
+<details id="threadPanel"><summary>Transitions &amp; root motion</summary><div class="toolbar"><label>Request sequence <select id="destination"></select></label><label>Target frame <input id="targetFrame" type="number" min="-1" value="-1" style="width:65px"></label><label><input id="stopAtTarget" type="checkbox" checked>Stop on arrival</label><button id="requestTransition">Request</button><label><input id="rootMotion" type="checkbox">Show root motion</label></div><p class="muted">Frame -1 accepts any destination frame. A request waits for an authored transition; some sequences have no connecting transition. Playback uses the original 25 Hz step, at rate 256 times the speed multiplier.</p><pre id="threadInfo"></pre></details>
+<details class="advanced"><summary>Palette and texture overrides</summary><div class="toolbar"><label>Palette <select id="palette"></select></label><label>Texture bank <select id="bank"></select></label><label id="cellLabel">Cell state <input id="cell" type="number" min="-1" max="255" value="-1" style="width:65px"></label><button id="reset">Reset view</button></div></details>
+<details id="loadoutPanel" open><summary>Equipment</summary><div class="toolbar"><label>Loadout <select id="loadout"><option value="default">Default equipment</option><option value="bare">Bare chassis</option><option value="custom">Custom equipment</option></select></label><span id="loadoutNote" class="muted"></span></div><div id="mounts" class="toolbar"></div></details>
+<canvas id="view" width="1050" height="730" style="width:100%;height:56vh;min-height:340px;touch-action:none"></canvas><p id="info"></p><p class="muted">Drag to orbit; wheel to zoom. Animation keeps the camera framing fixed. Thumbnail views keep a fixed angle.</p>
+<details id="variantsPanel" open><summary>Variants</summary><div id="variants" class="variants"></div></details>
+
+<details><summary>Hierarchy &amp; animation data</summary><pre id="metadata"></pre></details>
+</section></div></section>
+<script src="../browser_data.js"></script>
+<script src="catalogue.js"></script>
+<script src="../artwork/data.js"></script>
+<script src="../model_cosine.js"></script>
+<script src="../model_math.js"></script>
+<script src="../model_animation.js"></script>
+<script src="../model_lighting.js"></script>
+<script src="../model_renderer.js"></script>
+<script src="assemblies.js"></script>
+<script src="../model_assembly.js"></script>
+<script src="viewer.js"></script>
+<script src="../assets/viewers.js" defer></script>

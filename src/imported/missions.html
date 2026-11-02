@@ -1,0 +1,23 @@
+<style>.split{grid-template-columns:340px minmax(0,1fr)}#sceneWrap{position:relative}#labels{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;background:transparent}#view{display:block;width:100%;height:61vh;min-height:380px;touch-action:none}#map{width:100%;height:auto;max-height:65vh;object-fit:contain;touch-action:none}#actorList{max-height:34vh;overflow:auto}#briefing p{margin:8px 0}.status{padding:7px 10px;background:#1b2e3b}.list td{font-size:13px}.section td{background:#172532;font-weight:bold}</style>
+<section class="viewer" data-viewer="missions"><div class="toolbar"><label>Find <input id="find" type="search"></label><label>Campaign <select id="campaign"><option value="all">All</option><option value="0">Training &amp; instant action</option><option value="1">Chapter 1</option><option value="2">Chapter 2</option><option value="3">Chapter 3</option><option value="4">Chapter 4</option><option value="5">Chapter 5</option><option value="-1">Other sources</option></select></label><span id="count"></span></div>
+<div class="split"><div class="list"><table><thead><tr><th>Mission</th><th>Role</th></tr></thead><tbody id="rows"></tbody></table></div><section>
+<h2 id="title">Loading missions</h2><div class="toolbar"><label>Launch state <select id="compilation"></select></label><label>View <select id="viewMode"><option value="3d">3D scenery</option><option value="map">Top-down map</option></select></label><label>Time <select id="time"><option value="original">Mission setting</option><option value="0">Day preview</option><option value="1">Night preview</option></select></label></div>
+<p id="stateNote" class="status"></p><div class="toolbar"><label>Focus <select id="focus"></select></label><button id="overview">Whole map</button><button id="reset">Reset view</button><label><input id="routes" type="checkbox" checked>Routes</label><label><input id="waypoints" type="checkbox">All points</label><label><input id="actors" type="checkbox" checked>Actors</label><label><input id="waiting" type="checkbox">Waiting reinforcements</label></div>
+<div id="sceneWrap"><canvas id="view" width="1100" height="700"></canvas><canvas id="labels"></canvas></div><canvas id="map" width="1024" height="1024" hidden></canvas>
+<p id="stats"></p><p class="muted">Left drag to orbit; right drag to move the ground pivot; wheel to zoom.  Select a group or actor to inspect it closely. Reinforcements are hidden until their deployment action; their stored positions are placeholders.</p>
+<details open><summary>Briefing &amp; objectives</summary><div id="briefing"></div></details><details><summary>Placed actors</summary><div id="actorList"><table><thead><tr><th>Model</th><th>Group</th><th>Side</th><th>State</th><th>Inspect</th></tr></thead><tbody id="actorRows"></tbody></table></div></details>
+
+<details><summary>Compiled records &amp; placement notes</summary><pre id="metadata"></pre></details></section></div></section>
+<script src="../browser_data.js"></script>
+<script src="catalogue.js"></script>
+<script src="worlds.js"></script>
+<script src="../models/catalogue.js"></script>
+<script src="../models/assemblies.js"></script>
+<script src="../artwork/data.js"></script>
+<script src="../model_cosine.js"></script>
+<script src="../model_math.js"></script>
+<script src="../model_lighting.js"></script>
+<script src="../model_renderer.js"></script>
+<script src="../model_assembly.js"></script>
+<script src="viewer.js"></script>
+<script src="../assets/viewers.js" defer></script>

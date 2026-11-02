@@ -1,0 +1,1 @@
+EarthsiegeData.register(document.currentScript.src,{"frames":[{"width":1,"height":6,"indices":"DQ0NDQ0M","flags":0},{"width":14,"height":6,"indices":"GBgYHR8fHx8eFRgYGBIYFRUbGxsbGxsTFRUYEhgVFRsUFBQUGxMVFRgSGBUVGxkfHx0bExUVGBIYGBgbGRwcHRsTGBgWEhMTExkWFhYWGRYTExMU","flags":0}]});
