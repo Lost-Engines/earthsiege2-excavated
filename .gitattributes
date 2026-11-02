@@ -1,0 +1,3 @@
+* text=auto eol=lf
+# Preserve extracted payloads exactly, including the tapes' CRLF settings files.
+public/** -text -whitespace

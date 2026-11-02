@@ -1,3 +1,4 @@
+import {createHash} from 'node:crypto';
 import fs from 'node:fs/promises';import path from 'node:path';import vm from 'node:vm';import {fileURLToPath} from 'node:url';import {parse} from 'parse5';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../dist'),files=[],errors=[],documents=new Map();
 async function scan(dir){for(const f of await fs.readdir(dir,{withFileTypes:true})){const p=path.join(dir,f.name);if(f.isSymbolicLink())throw Error('Unexpected symlink '+p);if(f.isDirectory())await scan(p);else files.push(p)}}await scan(root);
@@ -21,7 +22,7 @@ for(const i of data.mediaData.images)await exists('artwork/pixels/'+i.name+'.jso
 const seen=new Set();
 async function missionFile(url){const rel=path.normalize('missions/'+url+'.js');if(seen.has(rel))return;seen.add(rel);if(await exists(rel)){const v=await jsonscript(rel);if(v.terrain)await missionFile(v.terrain)}}
 for(const m of data.missionCatalogue.missions){const fixtures=[...m.compilations,...m.situations,...m.recordings,...(m.capture?[m.capture]:[])];if(!fixtures.length)errors.push('No mission preview '+m.name);for(const f of fixtures)for(const k of ['url','scene'])await missionFile(f[k]);}
-const replays=await jsonscript('replays/catalogue.json.js');for(const r of replays.tapes){await exists('replays/'+r.frames_url+'.js');for(const f of r.files)await exists('replays/'+f.url)}
+const replays=await jsonscript('replays/catalogue.json.js');for(const r of replays.tapes){await exists('replays/'+r.frames_url+'.js');for(const f of r.files){const rel='replays/'+f.url;if(await exists(rel)){const b=await fs.readFile(path.join(root,rel));if(b.length!==f.bytes||createHash('sha256').update(b).digest('hex')!==f.sha256)errors.push('Changed tape payload '+rel)}}}
 const frames=await jsonscript('rendering/catalogue.json.js');for(const f of frames.frames)await exists('rendering/terrain/'+f.id+'.png');
 for(const f of files){const rel=path.relative(root,f);if(/\.(exe|dll|iso|cue|vol|rom|7z)$/i.test(rel))errors.push('Unexpected install content '+rel);if((await fs.stat(f)).size>25*1024*1024)errors.push('Unexpected large file '+rel)}
 for(const f of ['images/social-preview.jpg','images/provenance.json','.nojekyll'])await exists(f);
