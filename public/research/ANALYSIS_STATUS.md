@@ -2,13 +2,13 @@
 
 The supplied media and named resources are characterized, the main viewers are
 working, and the C++26 reconstruction joins the shell, simulation, cockpit,
-recorded demos and mission audio. Thirty-five controlled v1.1 mission runs now agree
+recorded demos and mission audio. Forty controlled v1.1 mission runs now agree
 with the original process after every captured simulation tick. The three shipped
 demos now have full-process comparisons too, with two documented departures
-from an original pointer-derived rocket timer. Two hundred and nine complete
+from an original pointer-derived rocket timer. Two hundred and twenty-three complete
 cockpit frames also match every pixel and palette entry, covering idle, walking,
 turning, reversal, turret motion, side glances, both heads-down pages, Razor
-flight, assault combat, later campaign environments, delayed lunar deployment, four consecutive campaign battles, sound-enabled combat and the death camera. Further missions can extend this coverage.
+flight, assault combat, later campaign environments, delayed lunar deployment, six consecutive campaign battles, sound-enabled combat and the death camera. Further missions can extend this coverage.
 
 The definitive target is the English Win95 v1.1 installation from
 `cd_v1_1_1997_09`. The older retail build, Win3.1 build and April demo remain
@@ -29,7 +29,7 @@ comparison oracles. Disc mastering dates do not determine executable age.
 | Interface | Interactive shell, MFD/HDD pages, targeting pod, preferences, input/joystick, status panels, startup/dropouts, external/developer cameras, freeze/single-step and diagnostic movement/damage, cockpit shake and impact palettes. [Interface](INTERFACE_INTEGRATION.md) |
 | Audio/video | Lossless samples, portraits, CD tracks, movies, captions and manuals. Original sound requests, speech-cache and CD-selection rules are connected; final host mixing is separate. [Audio/video](AUDIO_AND_VIDEO.md) |
 | Recorded demos | All 7,060 input packets, modal queue consumption, real-window launch/abort checks and 5,801 full-process snapshots. Three complete playback outcomes agree, with a labelled DEMO2 component guard and two documented pointer-derived timer departures in DEMO3. [Replays](REPLAYS.md) |
-| Complete original processes | 139,064 tick snapshots compare actor/AI/pose/combat/sensor/projectile state, squad firing lines, debris, explosion/fire pools, all four missile types, Razor flight, flags and RNG. The first four training missions reach success on the same ticks and write identical results. The long assault reaches death on tick 6,055, and a separate run using the original training invulnerability option reaches success on tick 7,317, both with identical result bytes; defence training reaches death on tick 7,917 with identical result bytes. Escort failure and reconnaissance death add further outcomes. The opening campaign patrol reaches success on tick 10,417 with all four squad members alive and a byte-exact debrief. The actual C1_01 result carries into C1_02, whose guarded run reaches failure on tick 11,533 with exact states, results and debrief. C1_03 then succeeds on tick 5,209 and the loaned Razor completes C1_04 on tick 3,969; their original weapon fits, complete results and debriefs also match. Lunar C5_04 matches through disabled-player ending on tick 3,349, followed by a byte-exact original campaign debrief. The v1.0 prefix ends at a verified terrain-visibility difference. Defence training and the long assault each retain an unmodified prefix and a separately labelled bounds-guarded original capture. [Process traces](ORIGINAL_PROCESS_TRACES.md) |
+| Complete original processes | 165,525 tick snapshots compare actor/AI/pose/combat/sensor/projectile state, squad firing lines, debris, explosion/fire pools, all four missile types, Razor flight, flags and RNG. The first four training missions reach success on the same ticks and write identical results. The long assault reaches death on tick 6,055, and a separate run using the original training invulnerability option reaches success on tick 7,317, both with identical result bytes; defence training reaches death on tick 7,917 with identical result bytes. Escort failure and reconnaissance death add further outcomes. The opening campaign patrol reaches success on tick 10,417 with all four squad members alive and a byte-exact debrief. The actual C1_01 result carries into C1_02, whose guarded run reaches failure on tick 11,533 with exact states, results and debrief. C1_03 then succeeds on tick 5,209 and the loaned Razor completes C1_04 on tick 3,969; their original weapon fits, complete results and debriefs also match. The same Razor completes the C1_05 rescue on tick 6,697; the pilot switches back to the owned Outlaw and returns from C1_06 with the objective unfinished on tick 6,000. Hard nighttime escort, an interrupted C1_08 data-link attempt and C5_10 through player death add three further outcomes. Nineteen actual battle results have matching original debrief saves and RNG. Lunar C5_04 matches through disabled-player ending on tick 3,349, followed by a byte-exact original campaign debrief. The v1.0 prefix ends at a verified terrain-visibility difference. Defence training and the long assault each retain an unmodified prefix and a separately labelled bounds-guarded original capture. [Process traces](ORIGINAL_PROCESS_TRACES.md) |
 
 The [native comparison index](../analysis/verification/index.html) links the
 retained reports. Each describes its boundaries. The complete-process traces
@@ -40,12 +40,12 @@ comparison alone covers every possible mission.
 ## Remaining work
 
 The [gameplay coverage table](GAMEPLAY_COVERAGE.md) separates exercised combinations
-from the next useful full-mission checks.
+from the next useful full-mission checks. The [latest verification pass](BROADER_GAMEPLAY_VERIFICATION.md) records the new scenarios and the three implementation errors they exposed.
 
 - Extend complete original-process comparisons to additional missions,
   further deployment branches and mission outcomes. Continue campaign coverage
   from those verified live outcomes.
-- Extend the 209 exact cockpit captures to further battles and tactical-map
+- Extend the 223 exact cockpit captures to further battles and tactical-map
   interactions. The death-camera sequence now matches. Assault frames include
   moving target brackets, weapon changes, contact reports and ground shadows.
 - Extend presentation scheduling checks where separate RNG consumers interact.
@@ -74,8 +74,7 @@ work are reflected in the analysis tools and exports.
 The analysis tree stays uncommitted for manual inspection. The reconstruction
 lives in `../earthsiege2-cpp`, targets C++26 and is committed and pushed in working
 increments. Linux CI now builds with GCC 16 and runs the complete original-fixture and
-integration suite on pushes and pull requests. All 166 checks pass on the current
-pushed revision; the [CI report](../analysis/verification/cpp-linux-ci.json) retains
-the run links, complete logs and source revision. The redundant original source containers
+integration suite on pushes and pull requests. All 177 local checks pass; the [CI report](../analysis/verification/cpp-linux-ci.json) retains
+the last completed run links, complete logs and source revision. The [local full-suite report](../analysis/verification/cpp-broader-verification.json) retains the tested revision, XML and log hashes. The redundant original source containers
 have now been removed after rechecking every retained member and sector
 representation. Working media and resource contents retain their provenance.

@@ -5953,13 +5953,13 @@
     },
     {
       "source": "docs/ANALYSIS_STATUS.md",
-      "bytes": 8015,
-      "sha256": "bc00fc4b9d643bcc59b197d190a9f8143eced95f5b96b7734ab6dbd826cce7f0"
+      "bytes": 8649,
+      "sha256": "3d983ec8a8151ceae0363c42ea67d23eedc9643f8da36072806daa0feb045616"
     },
     {
       "source": "docs/ORIGINAL_PROCESS_TRACES.md",
-      "bytes": 62233,
-      "sha256": "5cce9c778a2d745412331a0bec40b8d1c4a53dd360ccc93f358add43f46f9f02"
+      "bytes": 65498,
+      "sha256": "32badef549147a7fbda438373a85689fe84498bdb695f3f7bf04ae9b763c765c"
     },
     {
       "source": "docs/FLYER_PROFILE.md",
@@ -5977,6 +5977,21 @@
       "sha256": "f086882bf32ff7be42184f7232a1bcc7d658ae22ab28719cc413e20fa4bd8692"
     },
     {
+      "source": "docs/BROADER_GAMEPLAY_VERIFICATION.md",
+      "bytes": 8593,
+      "sha256": "53759d5460f3ea2185d2fea69e6ac81a5356d01bc2f8b30b373c30bf3eb9f033"
+    },
+    {
+      "source": "docs/GAMEPLAY_COVERAGE.md",
+      "bytes": 4997,
+      "sha256": "674142d8e5d1d80b0911a051dc65449f65ce6e29161e36edd9f5570535862ce3"
+    },
+    {
+      "source": "docs/CAMPAIGN.md",
+      "bytes": 19270,
+      "sha256": "2107877becea495fb007d940b1aa048cf19ec5f1bccd3e5b59a505f2e07e6baf"
+    },
+    {
       "source": "reference_sources/README.md",
       "bytes": 813,
       "sha256": "2aef89ace001a7898c90fcc4acccc46910106f0be6bf96e7187b7a1137325d47"
@@ -5990,6 +6005,11 @@
       "source": "analysis/resources/es1-overlap.json",
       "bytes": 325056,
       "sha256": "de140d1010510cc33ed30f50022a512fa4f55402717d62b6067be2ddf36536b8"
+    },
+    {
+      "source": "analysis/verification/cpp-broader-verification.json",
+      "bytes": 3089,
+      "sha256": "e4bf4972db668f12d1d7f0f6ea2335d950d494c5fd266500479fc96dbe3e3c87"
     }
   ],
   "note": "Public templates and mission-choice labels are adapted. Recovered geometry, animation, palette and raster algorithms are copied unchanged."

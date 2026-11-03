@@ -79,12 +79,13 @@ js=js.replace("async function selectMission(m){current=m;","async function selec
 (P/'missions/viewer.js').write_text(js)
 # The analysis notes are preserved verbatim as downloadable text; the public
 # research index explains their original workspace-relative links.
-notes=['EARTHSIEGE1_OVERLAP','EXECUTABLES_AND_CONTROLS','MISSIONS_AND_TERRAIN','ANIMATION_AND_MOVEMENT','ENVIRONMENT_AND_RENDERING','REPLAYS','AUDIO_AND_VIDEO','COCKPITS','INSTALL_MEDIA','ANALYSIS_STATUS','ORIGINAL_PROCESS_TRACES','FLYER_PROFILE','SIMULATION_FOUNDATIONS','VERSION_DIFFERENCES']
+notes=['EARTHSIEGE1_OVERLAP','EXECUTABLES_AND_CONTROLS','MISSIONS_AND_TERRAIN','ANIMATION_AND_MOVEMENT','ENVIRONMENT_AND_RENDERING','REPLAYS','AUDIO_AND_VIDEO','COCKPITS','INSTALL_MEDIA','ANALYSIS_STATUS','ORIGINAL_PROCESS_TRACES','FLYER_PROFILE','SIMULATION_FOUNDATIONS','VERSION_DIFFERENCES','BROADER_GAMEPLAY_VERIFICATION','GAMEPLAY_COVERAGE','CAMPAIGN']
 for name in notes:put('research/'+name+'.md',read('docs/'+name+'.md').decode().replace('\u2014',' - '))
 put('research/REFERENCES.md',read('reference_sources/README.md').decode())
 put('research/HERCULAN-LICENSE.txt',read('reference_sources/HERCULAN-LICENSE.txt'))
 put('research/es1-overlap.json',read('analysis/resources/es1-overlap.json'))
 # Small, current summary for the public article. Full traces stay in research.
-put('research/coverage.json',json.dumps({'reference':'Win95 v1.1, English','mission_snapshots':139064,'exact_cockpit_frames':209,'cpp_tests':166,'source':'docs/ANALYSIS_STATUS.md'},indent=2)+'\n')
+verification=load('verification/cpp-broader-verification.json')
+put('research/coverage.json',json.dumps({'reference':'Win95 v1.1, English','mission_snapshots':verification['corpus']['snapshots'],'exact_cockpit_frames':verification['corpus']['exact_frames'],'cpp_tests':verification['tests'],'source':'analysis/verification/cpp-broader-verification.json'},indent=2)+'\n')
 put('data-provenance.json',json.dumps({'source_workspace':'earthsiege2-reverse','files':list(records.values()),'note':'Public templates and mission-choice labels are adapted. Recovered geometry, animation, palette and raster algorithms are copied unchanged.'},indent=2)+'\n')
 print(f'Imported {len(records)} source files; {len(models)} model libraries and {len(missions["missions"])} missions.')

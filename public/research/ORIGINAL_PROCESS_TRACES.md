@@ -1,6 +1,6 @@
 # Complete original-process mission traces
 
-The C++ simulation agrees with the captured state after every tick of thirty-five
+The C++ simulation agrees with the captured state after every tick of forty
 controlled v1.1 runs through the documented comparison limits. The first drives and fires through 1,024 ticks, including
 an enemy returning fire. The second combines driving, turning, turret twist,
 pitch and firing for 512 ticks. At delta 81, these cover 40.5 and 20.25 seconds
@@ -85,12 +85,18 @@ only the original captures. Its expected values never come from the port.
 | v1.1 C1_02 carried campaign with aim bounds guard | 0-11533 | 11,534 |
 | v1.1 C1_03 recovery after the actual C1_02 failure | 0-5209 | 5,210 |
 | v1.1 C1_04 armed Razor reconnaissance | 0-3969 | 3,970 |
+| v1.1 C1_05 rescue in the carried Razor | 0-6697 | 6,698 |
+| v1.1 hard nighttime Ogre escort | 0-3421 | 3,422 |
+| v1.1 C1_08 data-link attempt through disablement | 0-3969 | 3,970 |
+| v1.1 C1_06 carried Outlaw through incomplete return | 0-6000 | 6,001 |
+| v1.1 C5_10 finale through player death | 0-6369 | 6,370 |
 | DEMO1 complete playback | 0-921 | 922 |
 | DEMO2 unchanged prefix | 0-669 | 670 |
 | DEMO2 complete guarded playback | 0-857 | 858 |
 | DEMO3 complete playback, with two documented timer departures | 0-3350 | 3,351 |
 
-Together these fixtures contain 139,064 snapshots and 1,051,040,653 observed values.
+Together these 45 cases contain 165,525 snapshots, 192,104,802 named fields and
+1,357,011,355 observed integer values.
 The complete moving-world comparisons include the documented original bounds
 and timer defects; each fixture's provenance records its exact boundary.
 
@@ -116,7 +122,7 @@ Data-link training succeeds at tick 7,689 with 92 identical result bytes. The
 third training mission succeeds at tick 7,317 with 128 identical result bytes,
 including 12 recovered weapons and four credited HERC kills.
 The other runs cover specific battle scenarios; additional mission outcomes and
-campaign branches still need complete-process comparisons. Two hundred and nine idle, moving, view-change, assault, campaign and death-camera
+campaign branches still need complete-process comparisons. Two hundred and twenty-three idle, moving, view-change, assault, campaign and death-camera
 frames now match exactly, as detailed below. Further battle presentation and map
 interactions can extend that coverage. Host audio remains a separate check. Native
 subsystem fixtures and broader C++ integration tests cover many of those areas,
@@ -1046,3 +1052,55 @@ Current totals are 40 cases, 139,064 snapshots, 150,880,588 named fields and
 1,051,040,653 integer values. There are 209 complete exact frames and fourteen
 actual battle debriefs. The first four campaign missions now have one consecutive
 played history; other branches and player choices remain open to further checks.
+
+
+## Rescue victory and difficult nighttime escort
+
+The actual campaign now reaches C1_05 through five consecutive played battles.
+Its rescue succeeds on tick 6,697 with the original pilot and armed Razor intact.
+All 6,698 snapshots, 11,057,749 fields and 91,626,018 values agree, along with
+the complete 80-byte result and the subsequent 4,766-byte shell save and RNG.
+Frames 1,200, 4,000 and 6,600 match every index and palette entry. The original
+needs no gameplay guard for this capture.
+
+A separate practice escort uses the Ogre, difficulty 3, night conditions and
+the original AI squadmate. It ends in player death on tick 3,421. Its 3,422
+snapshots, 2,795,191 fields, 15,144,678 values, 156 result bytes and complete
+debrief save match. The three frames at ticks 300, 1,600 and 3,300 also match
+without masks or an original-code guard.
+
+The crew fixture now retains a legal switch from the loaned Razor to the
+existing Outlaw using the original crew-screen assignment routine. Both saves
+around the change agree with C++. The earlier two earned plasma-cannon fits
+remain in the same fixture. Only the crew-label refresh is a supplied boundary.
+
+These additions bring the retained process corpus to 42 cases and 149,184
+snapshots, with 215 exact complete frames and sixteen actual-battle debriefs.
+This includes prefixes and repeated missions under different conditions.
+
+Reports: [rescue states](../analysis/combat/cpp-original-campaign-rescue.json),
+[rescue frames](../analysis/rendering/cpp-campaign-rescue-frames.json),
+[night escort states](../analysis/combat/cpp-original-hard-night-escort.json),
+[night escort frames](../analysis/rendering/cpp-hard-night-escort-frames.json),
+[debriefs](../analysis/campaign/native-played-debriefs.json).
+
+The trace exporter now scans large original captures twice instead of retaining
+all decoded snapshots in memory. Field ordering, observation counts and stored
+values are unchanged. Raw captures are losslessly compressed only after their
+decompressed SHA-256 is checked.
+
+
+## Broader campaign and difficulty verification
+
+Five further captures extend the earlier 40-case corpus: C1_05 rescue, hard
+nighttime Ogre escort, C1_08 through disablement, C1_06 through an incomplete
+return and C5_10 through player death. All captured states and result bytes
+agree; fourteen additional full images match every indexed pixel and palette
+entry. The debrief fixture now contains nineteen actual battle outcomes.
+
+The complete C1_06 comparison exposed an interrupted pivot-stop rate error. The
+finale exposed incorrect Arachnitron blast exclusion, attacker identity and
+publication of its limbo position. The disabled C1_08 cockpit exposed a missing
+offline gauge branch. Each correction follows the original instructions;
+[the detailed report](BROADER_GAMEPLAY_VERIFICATION.md) gives the first differing
+ticks, addresses, fixture boundaries and remaining useful coverage.

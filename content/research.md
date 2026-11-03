@@ -15,6 +15,8 @@ These working notes include addresses, field layouts and the boundaries of indiv
 - **[Media](INSTALL_MEDIA.md)** and **[version differences](VERSION_DIFFERENCES.md)**: which copies were retained and why v1.1 is the reference.
 - **[Flyer profile](FLYER_PROFILE.md)**: active and unused fields in the inherited SKIMMER data.
 - **[Simulation foundations](SIMULATION_FOUNDATIONS.md)** and **[complete-process traces](ORIGINAL_PROCESS_TRACES.md)**: arithmetic, random state and mission-by-mission comparisons.
+- **[Broader gameplay verification](BROADER_GAMEPLAY_VERIFICATION.md)**: the six-battle campaign history, harder nighttime escort, Arachnitron detonation and corrections found in longer runs.
+- **[Gameplay coverage](GAMEPLAY_COVERAGE.md)** and **[campaign rules](CAMPAIGN.md)**: exercised combinations, actual debriefs and further useful comparisons.
 - **[Coverage at publication](ANALYSIS_STATUS.md)**: what has been exercised and which comparisons remain useful.
 
 ## Sources and earlier work

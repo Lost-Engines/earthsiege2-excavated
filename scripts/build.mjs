@@ -45,7 +45,7 @@ for(const [key,[eyebrow,title,text,links,note]]of Object.entries(exhibits)){
  const tours=links.map(([href,label])=>`<a href="${href}">${label}</a>`).join('');
  await page(key,eyebrow,text,intro(eyebrow,title,text,tours)+`<noscript><p class="noscript">This interactive viewer needs JavaScript. The <a href="../story/">illustrated investigation</a> can be read without it.</p></noscript>`+await read(`src/imported/${key}.html`)+`<p class="viewer-note">${note} <a href="../research/">Research notes</a>.</p>`,{dark:true});
 }
-const noteNames=['EARTHSIEGE1_OVERLAP','EXECUTABLES_AND_CONTROLS','MISSIONS_AND_TERRAIN','ANIMATION_AND_MOVEMENT','ENVIRONMENT_AND_RENDERING','REPLAYS','AUDIO_AND_VIDEO','COCKPITS','INSTALL_MEDIA','ANALYSIS_STATUS','ORIGINAL_PROCESS_TRACES','FLYER_PROFILE','SIMULATION_FOUNDATIONS','VERSION_DIFFERENCES'];
+const noteNames=['EARTHSIEGE1_OVERLAP','EXECUTABLES_AND_CONTROLS','MISSIONS_AND_TERRAIN','ANIMATION_AND_MOVEMENT','ENVIRONMENT_AND_RENDERING','REPLAYS','AUDIO_AND_VIDEO','COCKPITS','INSTALL_MEDIA','ANALYSIS_STATUS','ORIGINAL_PROCESS_TRACES','FLYER_PROFILE','SIMULATION_FOUNDATIONS','VERSION_DIFFERENCES','BROADER_GAMEPLAY_VERIFICATION','GAMEPLAY_COVERAGE','CAMPAIGN'];
 const noteRoutes=new Map(noteNames.map(name=>[name+'.md',name.toLowerCase().replaceAll('_','-')]));
 let researchText=await read('content/research.md');
 for(const [name,route]of noteRoutes)researchText=researchText.replaceAll(']('+name+')',']('+route+'/)');
